@@ -1,35 +1,36 @@
-#include<stdio.h>
+#include <stdio.h>
 
-void main ()
+int main()
 {
-	int n;
-	int m;
+    int n, m;
 	
-	printf("Enter the size of colum :- ");
-	scanf("%d",&n);
+    printf("Enter the number of columns: ");
+    scanf("%d", &n);
 	
-	printf("Enter the size of row :- ");
-	scanf("%d",&m);
+    printf("Enter the number of rows: ");
+    scanf("%d", &m);
 	
-	int a[n][m];
-	int i,j;
-	int *ptr[100][100];
-	ptr[100][100]=&a[n][m];
+    int a[n][m];
+    int i, j;
+    int *ptr[100][100];
 	
-	for(i=0;i<n;i++){
-		for(j=0;j<m;j++){
-			printf("a[%d][%d] => ",i,j);
-			scanf("%d",&ptr[i][j]);
-		}
-	}
-	printf("\n");
-	for(i=0;i<n;i++){
-		for(j=0;j<m;j++){
-			if(*ptr[i][j]%2==0){
-				printf("%d\t",ptr[i][j]);
-				
-			}
-		}
-	}
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < m; j++) {
+            printf("a[%d][%d] => ", i, j);
+            scanf("%d", &a[i][j]);
+            ptr[i][j] = &a[i][j]; 
+        }
+    }
 	
+    printf("\n");
+	
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < m; j++) {
+            if (*ptr[i][j] % 2 == 0) {
+                printf("%d\t", *ptr[i][j]);
+            }
+        }
+    }
+	
+    return 0;
 }
